@@ -53,6 +53,7 @@ export function Game({ settingsData }: GameProps) {
     (e: React.FormEvent<HTMLFormElement>) => {
       e.preventDefault();
       const guessedCountry = countries.find(
+        // TODO: かなも入れる
         (country) =>
           sanitizeCountryName(
             getCountryName(i18n.resolvedLanguage, country)
@@ -109,7 +110,7 @@ export function Game({ settingsData }: GameProps) {
             hideImageMode && !gameEnded ? "h-0" : "h-full"
           }`}
           alt="country to guess"
-          src={`images/countries/${country.code.toLowerCase()}/vector.svg`}
+          src={`images/市町村/${country.code}.svg`}
           style={
             rotationMode && !gameEnded
               ? {
