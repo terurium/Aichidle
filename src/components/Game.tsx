@@ -53,6 +53,7 @@ export function Game({ settingsData }: GameProps) {
     (e: React.FormEvent<HTMLFormElement>) => {
       e.preventDefault();
       const guessedCountry = countries.find(
+        // TODO: かなも入れる
         (country) =>
           sanitizeCountryName(
             getCountryName(i18n.resolvedLanguage, country)
