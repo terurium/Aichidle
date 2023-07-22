@@ -153,7 +153,8 @@ export function Game({ settingsData }: GameProps) {
               target="_blank"
               rel="noopener noreferrer"
             >
-              {t("showOnGoogleMaps")}
+              {/* {t("showOnGoogleMaps")} */}
+              Google Map で見る
             </a>
           </>
         ) : (
