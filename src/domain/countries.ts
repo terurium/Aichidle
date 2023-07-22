@@ -1625,6 +1625,13 @@ export function getCountryName(language: string, country: Country) {
   return country.name;
 }
 
+export function getCountryKana(language: string, country: Country) {
+  if (language === "fr") {
+    return frenchCountryNames[country.code];
+  }
+  return country.kana;
+}
+
 export function sanitizeCountryName(countryName: string): string {
   return countryName
     .normalize("NFD")

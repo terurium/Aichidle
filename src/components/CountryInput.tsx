@@ -4,6 +4,7 @@ import Autosuggest from "react-autosuggest";
 import { useTranslation } from "react-i18next";
 import {
   countries,
+  getCountryKana,
   getCountryName,
   sanitizeCountryName,
 } from "../domain/countries";
@@ -27,12 +28,20 @@ export function CountryInput({
       onSuggestionsFetchRequested={({ value }) =>
         setSuggestions(
           countries
-            .map((c) => getCountryName(i18n.resolvedLanguage, c).toUpperCase())
-            .filter((countryName) =>
-              sanitizeCountryName(countryName).includes(
-                sanitizeCountryName(value)
-              )
+            .map((c) => [
+              getCountryName(i18n.resolvedLanguage, c),
+              getCountryKana(i18n.resolvedLanguage, c),
+            ])
+            .filter(
+              ([countryName, countryKana]) =>
+                sanitizeCountryName(countryName).includes(
+                  sanitizeCountryName(value)
+                ) ||
+                sanitizeCountryName(countryKana).includes(
+                  sanitizeCountryName(value)
+                )
             )
+            .map((s) => s[0])
         )
       }
       onSuggestionsClearRequested={() => setSuggestions([])}
@@ -47,7 +56,7 @@ export function CountryInput({
       }}
       inputProps={{
         className: "w-full dark:bg-slate-800 dark:text-slate-100",
-        placeholder: t("placeholder"),
+        placeholder: t("予想を入力"),
         value: currentGuess,
         onChange: (_e, { newValue }) => setCurrentGuess(newValue),
       }}
