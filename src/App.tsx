@@ -66,6 +66,16 @@ function App() {
             </button>
             <h1 className="text-4xl font-bold tracking-wide text-center my-1 flex-auto">
               HOKKAI<span className="text-green-600">D</span>LE
+              <img
+                src="hokkaido.png"
+                alt="Hokkaido"
+                style={{
+                  height: "33px",
+                  display: "inline",
+                  marginBottom: "8px",
+                  marginLeft: "6px",
+                }}
+              />
             </h1>
             <button
               className="mx-3 text-xl"
