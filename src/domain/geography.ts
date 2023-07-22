@@ -1,4 +1,5 @@
-const MAX_DISTANCE_ON_EARTH = 20_000_000;
+// const MAX_DISTANCE_ON_EARTH = 20_000_000; // 2000万メートル = 20000km
+const MAX_DISTANCE_ON_EARTH = 450_000; // 50万メートル = 450km
 
 export type Direction =
   | "S"
