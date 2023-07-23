@@ -105,9 +105,23 @@ export function GuessRow({ guess, settingsData }: GuessRowProps) {
             {guess && formatDistance(guess.distance, distanceUnit)}
           </div>
           <div className="flex items-center justify-center border-2 h-8 col-span-1 animate-reveal">
+            {/* {guess?.distance === 0
+              ? "🎉"
+              : guess && DIRECTION_ARROWS[guess.direction]} */}
             {guess?.distance === 0
               ? "🎉"
-              : guess && DIRECTION_ARROWS[guess.direction]}
+              : guess && (
+                  <span
+                    style={{
+                      transform: `rotate(-90deg) rotate(${Math.round(
+                        guess.angleInDeg
+                      )}deg)`,
+                      display: "inline-block",
+                    }}
+                  >
+                    ➡
+                  </span>
+                )}
           </div>
           <div className="flex items-center justify-center border-2 h-8 col-span-1 animate-reveal animate-pop">
             {`${proximity}%`}

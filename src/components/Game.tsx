@@ -15,6 +15,7 @@ import { useTranslation } from "react-i18next";
 import { SettingsData } from "../hooks/useSettings";
 import { useMode } from "../hooks/useMode";
 import { useCountry } from "../hooks/useCountry";
+import { Guess } from "../domain/guess";
 
 function getDayString() {
   return DateTime.now().toFormat("yyyy-MM-dd");
@@ -61,24 +62,26 @@ export function Game({ settingsData }: GameProps) {
       );
 
       if (guessedCountry == null) {
-        toast.error(t("unknownCountry"));
+        // toast.error(t("unknownCountry"));
+        toast.error("正しい市町村を入力してください");
         return;
       }
 
-      const newGuess = {
+      const newGuess: Guess = {
         name: currentGuess,
         distance: geolib.getDistance(guessedCountry, country),
         direction: geolib.getCompassDirection(guessedCountry, country),
+        angleInDeg: geolib.getRhumbLineBearing(guessedCountry, country),
       };
-
       addGuess(newGuess);
       setCurrentGuess("");
 
       if (newGuess.distance === 0) {
-        toast.success(t("welldone"), { delay: 2000 });
+        // toast.success(t("welldone"), { delay: 2000 });
+        toast.success("正解！", { delay: 2000 });
       }
     },
-    [addGuess, country, currentGuess, i18n.resolvedLanguage, t]
+    [addGuess, country, currentGuess, i18n.resolvedLanguage]
   );
 
   useEffect(() => {
