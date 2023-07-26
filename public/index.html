@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="ja">
-  <head>
+  <head prefix="og: http://ogp.me/ns#">
     <meta charset="utf-8" />
     <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -12,13 +12,36 @@
 
     <meta property="og:title" content="HOKKAIDLE" />
     <!-- <meta property="og:type" content="ページの種類" /> -->
+    <meta property="og:type" content="website" />
     <meta property="og:url" content="https://hokkaidle.web.app" />
     <meta property="og:image" content="https://hokkaidle.web.app/logo512.png" />
     <meta property="og:site_name" content="HOKKAIDLE" />
     <meta property="og:description" content="北海道の市町村の形当てゲーム" />
 
     <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="@takapiro_99" />
+    <meta name="twitter:title" content="Hokkaidle" />
+    <meta name="twitter:description" content="北海道の市町村の形当てゲーム" />
+    <meta
+      name="twitter:image"
+      content="https://hokkaidle.web.app/logo512.png"
+    />
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-LRCWB1XKXE"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-LRCWB1XKXE");
+    </script>
   </head>
+
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
