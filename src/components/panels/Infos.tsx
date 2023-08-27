@@ -179,6 +179,33 @@ export function Infos({ isOpen, close, settingsData }: InfosProps) {
           </a>
         </div> */}
       </div>
+      <details>
+        <summary>プライバシーについて</summary>
+        ＊Google Analyticsについて
+        当社のいくつかのページでは、お客様の本サイトの訪問状況を把握するためにGoogle
+        社のサービスであるGoogle Analyticsを利用しています。当社のサイトでGoogle
+        Analyticsを利用しますと、当社が発行するクッキーをもとにして、Google
+        社がお客様の本サイトの訪問履歴を収集、記録、分析します。当社は、Google
+        社からその分析結果を受け取り、お客様の本サイトの訪問状況を把握します。Google
+        Analyticsにより収集、記録、分析されたお客様の情報には、特定の個人を識別する情報は一切含まれません。また、それらの情報は、Google社により同社のプライバシーポリシーに基づいて管理されます。
+        お客様は、ブラウザのアドオン設定でGoogle
+        Analyticsを無効にすることにより、当社のGoogle
+        Analytics利用によるお客様の情報の収集を停止することも可能です。Google
+        Analyticsの無効設定は、Google社によるオプトアウトアドオンのダウンロードページで
+        「Google
+        Analyticsオプトアウトアドオン」をダウンロードおよびインストールし、ブラウザのアドオン設定を変更することで実施することができます。なお、お客様がGoogle
+        Analyticsを無効設定した場合、お客様が訪問する本サイト以外のウェブサイトでもGoogle
+        Analyticsは無効になりますが、お客様がブラウザのアドオンを再設定することにより、再度Google
+        Analyticsを有効にすることも可能です。 Google
+        Analyticsの利用規約に関する説明についてはGoogle
+        Analyticsのサイトを、Google社のプライバシーポリシーに関する説明については同社のサイトをご覧下さい。
+        Google Analyticsの利用規約：
+        http://www.google.com/analytics/terms/jp.html
+        Googleのプライバシーポリシー：
+        http://www.google.com/intl/ja/policies/privacy/ Google
+        Analyticsオプトアウトアドオン：
+        https://tools.google.com/dlpage/gaoptout?hl=ja
+      </details>
     </Panel>
   );
 }

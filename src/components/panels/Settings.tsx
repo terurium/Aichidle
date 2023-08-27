@@ -19,7 +19,7 @@ export function Settings({
   const { t } = useTranslation();
 
   return (
-    <Panel title={t("settings.title")} isOpen={isOpen} close={close}>
+    <Panel title={"setting"} isOpen={isOpen} close={close}>
       <div className="my-4">
         <header className="my-2"></header>
         <div className="flex p-1">
