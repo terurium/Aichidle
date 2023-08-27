@@ -25,25 +25,37 @@ export function CountryInput({
   return (
     <Autosuggest
       suggestions={suggestions}
-      onSuggestionsFetchRequested={({ value }) =>
-        setSuggestions(
-          countries
-            .map((c) => [
-              getCountryName(i18n.resolvedLanguage, c),
-              getCountryKana(i18n.resolvedLanguage, c),
-            ])
-            .filter(
-              ([countryName, countryKana]) =>
-                sanitizeCountryName(countryName).includes(
-                  sanitizeCountryName(value)
-                ) ||
-                sanitizeCountryName(countryKana).includes(
-                  sanitizeCountryName(value)
-                )
-            )
-            .map((s) => s[0])
-        )
-      }
+      shouldRenderSuggestions={() => true}
+      onSuggestionsFetchRequested={({ value }) => {
+        if (value) {
+          setSuggestions(
+            countries
+              .map((c) => [
+                getCountryName(i18n.resolvedLanguage, c),
+                getCountryKana(i18n.resolvedLanguage, c),
+              ])
+              .filter(
+                ([countryName, countryKana]) =>
+                  sanitizeCountryName(countryName).includes(
+                    sanitizeCountryName(value)
+                  ) ||
+                  sanitizeCountryName(countryKana).includes(
+                    sanitizeCountryName(value)
+                  )
+              )
+              .map((s) => s[0])
+          );
+        } else {
+          setSuggestions(
+            countries
+              .map((c) => [
+                getCountryName(i18n.resolvedLanguage, c),
+                getCountryKana(i18n.resolvedLanguage, c),
+              ])
+              .map((s) => s[0])
+          );
+        }
+      }}
       onSuggestionsClearRequested={() => setSuggestions([])}
       getSuggestionValue={(suggestion) => suggestion}
       renderSuggestion={(suggestion) => (
