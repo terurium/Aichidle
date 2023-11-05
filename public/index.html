@@ -39,6 +39,16 @@
       gtag("js", new Date());
 
       gtag("config", "G-LRCWB1XKXE");
+      /**
+       * @param {number} timesAnswered (must be 1~6)
+       * @param {number} totalCorrectTimes
+       */
+      window.gtagGameEndEvent = (timesAnswered, totalCorrectTimes) => {
+        gtag("event", "post_score", {
+          score: timesAnswered,
+          totalCorrectTimes: totalCorrectTimes,
+        });
+      };
     </script>
   </head>
 

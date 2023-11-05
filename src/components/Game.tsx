@@ -6,7 +6,7 @@ import {
   getCountryName,
   sanitizeCountryName,
 } from "../domain/countries";
-import { useGuesses } from "../hooks/useGuesses";
+import { getTotalCorrectTimes, useGuesses } from "../hooks/useGuesses";
 import { CountryInput } from "./CountryInput";
 import * as geolib from "geolib";
 import { Share } from "./Share";
@@ -49,6 +49,14 @@ export function Game({ settingsData }: GameProps) {
   const gameEnded =
     guesses.length === MAX_TRY_COUNT ||
     guesses[guesses.length - 1]?.distance === 0;
+
+  useEffect(() => {
+    if (gameEnded) {
+      // eslint-disable-next-line
+      // @ts-ignore
+      window.gtagGameEndEvent(guesses.length, getTotalCorrectTimes());
+    }
+  }, [gameEnded, guesses]);
 
   const handleSubmit = useCallback(
     (e: React.FormEvent<HTMLFormElement>) => {
@@ -109,16 +117,12 @@ export function Game({ settingsData }: GameProps) {
       )}
       <div className="my-1">
         <img
-          className={`max-h-52 m-auto transition-transform duration-700 ease-in dark:invert ${
-            hideImageMode && !gameEnded ? "h-0" : "h-full"
-          }`}
+          className={`max-h-52 m-auto transition-transform duration-700 ease-in dark:invert ${hideImageMode && !gameEnded ? "h-0" : "h-full"}`}
           alt="country to guess"
           src={`images/市町村/${country.code}.svg`}
           style={
             rotationMode && !gameEnded
-              ? {
-                  transform: `rotate(${randomAngle}deg) scale(${imageScale})`,
-                }
+              ? { transform: `rotate(${randomAngle}deg) scale(${imageScale})` }
               : {}
           }
         />

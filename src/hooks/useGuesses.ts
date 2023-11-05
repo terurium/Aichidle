@@ -6,6 +6,13 @@ function loadAllGuesses(): Record<string, Guess[]> {
   return storedGuesses != null ? JSON.parse(storedGuesses) : {};
 }
 
+export function getTotalCorrectTimes(): number {
+  const guesses = loadAllGuesses();
+  return Object.values(guesses).reduce((acc, cur) => {
+    return acc + cur.filter((g) => g.distance === 0).length;
+  }, 0);
+}
+
 export function useGuesses(
   dayString: string
 ): [Guess[], (guess: Guess) => void] {
