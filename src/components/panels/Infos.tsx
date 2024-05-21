@@ -19,7 +19,6 @@ export function Infos({ isOpen, close, settingsData }: InfosProps) {
         <div>
           <Hokkaidle /> で、北海道の市町村を 6 回以内で当ててください。
         </div>
-        {/* <div>Each guess must be a valid country, territory, ...</div> */}
         <div>
           予想を入力すると、予想した市町村と正解の市町村との距離と方向が表示されます。
         </div>
@@ -44,11 +43,6 @@ export function Infos({ isOpen, close, settingsData }: InfosProps) {
             を予想しました。 正解から
             {formatDistance(212237, settingsData.distanceUnit)}
             だけ離れていて、正解への方角は左下方向。
-            {/* Your guess <span className="uppercase font-bold">Chile</span> is{" "}
-            {formatDistance(13557000, settingsData.distanceUnit)} away from the
-            target country, the target country is in the North-East direction
-            and you have a only 32% of proximity because it&apos;s quite far
-            away! */}
           </div>
         </div>
         <div>
@@ -92,18 +86,6 @@ export function Infos({ isOpen, close, settingsData }: InfosProps) {
       <div className="space-y-3 text-justify border-b-2 border-gray-200 pb-3 mb-3 font-bold">
         <Hokkaidle /> は毎日更新されます。
       </div>
-      {/* <div className="space-y-3 text-justify border-b-2 border-gray-200 pb-3 mb-3">
-        <div className="font-bold">距離について</div>
-        <div>
-          The distances displayed correspond to the distances between the
-          selected and the target territory centers.
-        </div>
-        <div>
-          For instance, the computed distance between United States and Canada
-          is around {formatDistance(2_260_000, settingsData.distanceUnit)} even
-          if they have a common border.
-        </div>
-      </div> */}
       <div className="space-y-3 text-justify border-b-2 border-gray-200 pb-3 mb-3">
         <Hokkaidle /> has been <span className="font-bold">heavily</span>{" "}
         inspired by{" "}
