@@ -1,8 +1,6 @@
 import { DateTime, Interval } from "luxon";
 import { useMemo } from "react";
-import CopyToClipboard from "react-copy-to-clipboard";
 import { useTranslation } from "react-i18next";
-import { toast } from "react-toastify";
 import {
   computeProximityPercent,
   generateSquareCharacters,
@@ -57,16 +55,16 @@ export function Share({
   }, [dayString, guesses, hideImageMode, rotationMode, theme]);
 
   return (
-    <CopyToClipboard
-      text={shareText}
-      onCopy={() => toast(t("copy"))}
-      options={{
-        format: "text/plain",
-      }}
+    <a
+      href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(
+        shareText
+      )}`}
+      target="_blank"
+      rel="noreferrer"
     >
       <button className="border-2 px-4 uppercase bg-green-600 hover:bg-green-500 active:bg-green-700 text-white w-full">
         {t("share")}
       </button>
-    </CopyToClipboard>
+    </a>
   );
 }

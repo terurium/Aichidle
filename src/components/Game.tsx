@@ -70,7 +70,6 @@ export function Game({ settingsData }: GameProps) {
       );
 
       if (guessedCountry == null) {
-        // toast.error(t("unknownCountry"));
         toast.error("正しい市町村を入力してください");
         return;
       }
@@ -85,7 +84,6 @@ export function Game({ settingsData }: GameProps) {
       setCurrentGuess("");
 
       if (newGuess.distance === 0) {
-        // toast.success(t("welldone"), { delay: 2000 });
         toast.success("正解！", { delay: 2000 });
       }
     },
@@ -117,7 +115,9 @@ export function Game({ settingsData }: GameProps) {
       )}
       <div className="my-1">
         <img
-          className={`max-h-52 m-auto transition-transform duration-700 ease-in dark:invert ${hideImageMode && !gameEnded ? "h-0" : "h-full"}`}
+          className={`max-h-52 m-auto transition-transform duration-700 ease-in dark:invert ${
+            hideImageMode && !gameEnded ? "h-0" : "h-full"
+          }`}
           alt="country to guess"
           src={`images/市町村/${country.code}.svg`}
           style={
@@ -160,7 +160,6 @@ export function Game({ settingsData }: GameProps) {
               target="_blank"
               rel="noopener noreferrer"
             >
-              {/* {t("showOnGoogleMaps")} */}
               Google Map で見る
             </a>
           </>

@@ -6,11 +6,11 @@ import { Infos } from "./components/panels/Infos";
 import { Settings } from "./components/panels/Settings";
 import { useSettings } from "./hooks/useSettings";
 import { Hokkaidle } from "./components/Hokkaidle";
+import { Header } from "./components/Header";
 
-function App() {
+export const App = () => {
   const [infoOpen, setInfoOpen] = useState(false);
   const [settingsOpen, setSettingsOpen] = useState(false);
-
   const [settingsData, updateSettings] = useSettings();
 
   useEffect(() => {
@@ -44,52 +44,16 @@ function App() {
       />
       <div className="flex justify-center flex-auto dark:bg-slate-900 dark:text-slate-50">
         <div className="w-full max-w-lg flex flex-col">
-          <header className="border-b-2 border-gray-200 flex">
-            <button
-              className="mx-3 text-xl"
-              type="button"
-              onClick={() => setInfoOpen(true)}
-            >
-              ❓
-            </button>
-            <h1 className="text-4xl font-bold tracking-wide text-center my-1 flex-auto">
-              HOKKAI<span className="text-green-600">D</span>LE
-              <img
-                src="hokkaido.png"
-                alt="Hokkaido"
-                style={{
-                  height: "33px",
-                  display: "inline",
-                  marginBottom: "8px",
-                  marginLeft: "6px",
-                }}
-              />
-            </h1>
-            <button
-              className="mx-3 text-xl"
-              type="button"
-              onClick={() => setSettingsOpen(true)}
-            >
-              ⚙️
-            </button>
-          </header>
+          <Header
+            handleOpenInfo={() => setInfoOpen(true)}
+            handleOpenSettings={() => setSettingsOpen(true)}
+          />
           <Game settingsData={settingsData} />
           <footer className="flex justify-center text-sm mt-8 mb-1">
-            {/* ❤️ <Worldle />? - */}
             <Hokkaidle />
-            {/* <a
-              className="underline pl-1"
-              href="https://www.ko-fi.com/teuteuf"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              {t("buyMeACoffee")}
-            </a> */}
           </footer>
         </div>
       </div>
     </>
   );
-}
-
-export default App;
+};
