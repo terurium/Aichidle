@@ -3,15 +3,11 @@ import "react-toastify/dist/ReactToastify.css";
 import { Game } from "./components/Game";
 import React, { useEffect, useState } from "react";
 import { Infos } from "./components/panels/Infos";
-import { useTranslation } from "react-i18next";
-import { InfosFr } from "./components/panels/InfosFr";
 import { Settings } from "./components/panels/Settings";
 import { useSettings } from "./hooks/useSettings";
 import { Hokkaidle } from "./components/Hokkaidle";
 
 function App() {
-  const { t, i18n } = useTranslation();
-
   const [infoOpen, setInfoOpen] = useState(false);
   const [settingsOpen, setSettingsOpen] = useState(false);
 
@@ -35,19 +31,11 @@ function App() {
         autoClose={2000}
         bodyClassName="font-bold text-center"
       />
-      {i18n.resolvedLanguage === "fr" ? (
-        <InfosFr
-          isOpen={infoOpen}
-          close={() => setInfoOpen(false)}
-          settingsData={settingsData}
-        />
-      ) : (
-        <Infos
-          isOpen={infoOpen}
-          close={() => setInfoOpen(false)}
-          settingsData={settingsData}
-        />
-      )}
+      <Infos
+        isOpen={infoOpen}
+        close={() => setInfoOpen(false)}
+        settingsData={settingsData}
+      />
       <Settings
         isOpen={settingsOpen}
         close={() => setSettingsOpen(false)}
