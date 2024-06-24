@@ -52,7 +52,7 @@ export function GuessRow({ guess, settingsData }: GuessRowProps) {
           <div
             className={`flex text-2xl w-full justify-evenly items-center col-span-6 border-2 h-8`}
           >
-            {squares.map((character, index) => (
+            {squares.map((square, index) => (
               <div
                 key={index}
                 className="opacity-0 animate-reveal"
@@ -60,7 +60,7 @@ export function GuessRow({ guess, settingsData }: GuessRowProps) {
                   animationDelay: `${SQUARE_ANIMATION_LENGTH * index}ms`,
                 }}
               >
-                {character}
+                {square}
               </div>
             ))}
           </div>
@@ -78,7 +78,7 @@ export function GuessRow({ guess, settingsData }: GuessRowProps) {
         <>
           <div className="flex items-center justify-center border-2 h-8 col-span-3 animate-reveal">
             <p className="text-ellipsis overflow-hidden whitespace-nowrap">
-              {guess?.name.toUpperCase()}
+              {guess?.name}
             </p>
           </div>
           <div className="flex items-center justify-center border-2 h-8 col-span-2 animate-reveal">
@@ -90,18 +90,16 @@ export function GuessRow({ guess, settingsData }: GuessRowProps) {
               : guess && (
                   <span
                     style={{
-                      transform: `rotate(-90deg) rotate(${Math.round(
-                        guess.angleInDeg
-                      )}deg)`,
+                      transform: `rotate(${Math.round(guess.angleInDeg)}deg)`,
                       display: "inline-block",
                     }}
                   >
-                    ➡
+                    ⬆
                   </span>
                 )}
           </div>
           <div className="flex items-center justify-center border-2 h-8 col-span-1 animate-reveal animate-pop">
-            {`${proximity}%`}
+            {proximity}%
           </div>
         </>
       );

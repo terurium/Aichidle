@@ -7,7 +7,7 @@ export interface SettingsData {
   theme: "light" | "dark";
 }
 
-const defaultSettingsData: SettingsData = {
+export const defaultSettingsData: SettingsData = {
   noImageMode: false,
   rotationMode: false,
   distanceUnit: "km",

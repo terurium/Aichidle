@@ -7,11 +7,16 @@ import { Settings } from "./components/panels/Settings";
 import { useSettings } from "./hooks/useSettings";
 import { Hokkaidle } from "./components/Hokkaidle";
 import { Header } from "./components/Header";
+import { SettingContext, Setting } from "./contexts/SettingContext";
 
 export const App = () => {
   const [infoOpen, setInfoOpen] = useState(false);
   const [settingsOpen, setSettingsOpen] = useState(false);
   const [settingsData, updateSettings] = useSettings();
+  const settings: Setting = {
+    settingsData,
+    updateSettings,
+  };
 
   useEffect(() => {
     if (settingsData.theme === "dark") {
@@ -22,7 +27,7 @@ export const App = () => {
   }, [settingsData.theme]);
 
   return (
-    <>
+    <SettingContext.Provider value={settings}>
       <ToastContainer
         hideProgressBar
         position="top-center"
@@ -34,7 +39,7 @@ export const App = () => {
       <Infos
         isOpen={infoOpen}
         close={() => setInfoOpen(false)}
-        settingsData={settingsData}
+        // settingsData={settingsData}
       />
       <Settings
         isOpen={settingsOpen}
@@ -54,6 +59,6 @@ export const App = () => {
           </footer>
         </div>
       </div>
-    </>
+    </SettingContext.Provider>
   );
 };

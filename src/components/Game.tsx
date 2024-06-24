@@ -14,7 +14,7 @@ import { Guesses } from "./Guesses";
 import { useTranslation } from "react-i18next";
 import { SettingsData } from "../hooks/useSettings";
 import { useMode } from "../hooks/useMode";
-import { useCountry } from "../hooks/useCountry";
+import { useCountry as useTodayCity } from "../hooks/useCountry";
 import { Guess } from "../domain/guess";
 
 function getDayString() {
@@ -31,7 +31,7 @@ export function Game({ settingsData }: GameProps) {
   const { t, i18n } = useTranslation();
   const dayString = useMemo(getDayString, []);
 
-  const [country, randomAngle, imageScale] = useCountry(dayString);
+  const [country, randomAngle, imageScale] = useTodayCity(dayString);
 
   const [currentGuess, setCurrentGuess] = useState("");
   const [guesses, addGuess] = useGuesses(dayString);
@@ -47,8 +47,7 @@ export function Game({ settingsData }: GameProps) {
   );
 
   const gameEnded =
-    guesses.length === MAX_TRY_COUNT ||
-    guesses[guesses.length - 1]?.distance === 0;
+    guesses.length === MAX_TRY_COUNT || guesses.at(-1)?.distance === 0;
 
   useEffect(() => {
     if (gameEnded) {
@@ -61,24 +60,23 @@ export function Game({ settingsData }: GameProps) {
   const handleSubmit = useCallback(
     (e: React.FormEvent<HTMLFormElement>) => {
       e.preventDefault();
-      const guessedCountry = countries.find(
-        // TODO: かなも入れる
+      const guessedCity = countries.find(
         (country) =>
           sanitizeCountryName(
             getCountryName(i18n.resolvedLanguage, country)
           ) === sanitizeCountryName(currentGuess)
       );
 
-      if (guessedCountry == null) {
+      if (guessedCity == null) {
         toast.error("正しい市町村を入力してください");
         return;
       }
 
       const newGuess: Guess = {
         name: currentGuess,
-        distance: geolib.getDistance(guessedCountry, country),
-        direction: geolib.getCompassDirection(guessedCountry, country),
-        angleInDeg: geolib.getRhumbLineBearing(guessedCountry, country),
+        distance: geolib.getDistance(guessedCity, country),
+        direction: geolib.getCompassDirection(guessedCity, country),
+        angleInDeg: geolib.getRhumbLineBearing(guessedCity, country),
       };
       addGuess(newGuess);
       setCurrentGuess("");
