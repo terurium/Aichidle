@@ -12,7 +12,7 @@ import * as geolib from "geolib";
 import { Share } from "./Share";
 import { Guesses } from "./Guesses";
 import { useTranslation } from "react-i18next";
-import { SettingsData } from "../hooks/useSettings";
+import { useSettings } from "../hooks/useSettings";
 import { useMode } from "../hooks/useMode";
 import { useCountry as useTodayCity } from "../hooks/useCountry";
 import { Guess } from "../domain/guess";
@@ -23,13 +23,10 @@ function getDayString() {
 
 const MAX_TRY_COUNT = 6;
 
-interface GameProps {
-  settingsData: SettingsData;
-}
-
-export function Game({ settingsData }: GameProps) {
+export function Game() {
   const { t, i18n } = useTranslation();
   const dayString = useMemo(getDayString, []);
+  const { settingsData } = useSettings();
 
   const [country, randomAngle, imageScale] = useTodayCity(dayString);
 

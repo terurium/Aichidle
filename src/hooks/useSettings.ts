@@ -1,4 +1,5 @@
-import { useCallback, useState } from "react";
+import React from "react";
+import { SettingContext } from "../contexts/SettingContext";
 
 export interface SettingsData {
   noImageMode: boolean;
@@ -16,35 +17,10 @@ export const defaultSettingsData: SettingsData = {
     : "light",
 };
 
-function loadSettings(): SettingsData {
-  const storedSettings = localStorage.getItem("settings");
-  const settingsData = storedSettings != null ? JSON.parse(storedSettings) : {};
-  return {
-    ...defaultSettingsData,
-    ...settingsData,
-  };
-}
-
-export function useSettings(): [
-  SettingsData,
-  (newSettings: Partial<SettingsData>) => void
-] {
-  const [settingsData, setSettingsData] = useState<SettingsData>(
-    loadSettings()
-  );
-
-  const updateSettingsData = useCallback(
-    (newSettings: Partial<SettingsData>) => {
-      const updatedSettings = {
-        ...settingsData,
-        ...newSettings,
-      };
-
-      setSettingsData(updatedSettings);
-      localStorage.setItem("settings", JSON.stringify(updatedSettings));
-    },
-    [settingsData]
-  );
-
-  return [settingsData, updateSettingsData];
-}
+export const useSettings = () => {
+  const context = React.useContext(SettingContext);
+  if (context === null) {
+    throw new Error("useSettings must be used within a SettingContextProvider");
+  }
+  return context;
+};

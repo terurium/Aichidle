@@ -1,11 +1,10 @@
 import { Guesses } from "../Guesses";
 import { Panel } from "./Panel";
-import React, { useContext } from "react";
+import React from "react";
 import { Hokkaidle } from "../Hokkaidle";
 import { formatDistance } from "../../domain/geography";
-import { SettingsData } from "../../hooks/useSettings";
 import { Worldle } from "../Worldle";
-import { SettingContext } from "../../contexts/SettingContext";
+import { useSettings } from "../../hooks/useSettings";
 
 interface InfosProps {
   isOpen: boolean;
@@ -13,7 +12,7 @@ interface InfosProps {
 }
 
 export function Infos({ isOpen, close }: InfosProps) {
-  const { settingsData } = useContext(SettingContext);
+  const { settingsData } = useSettings();
 
   return (
     <Panel title="How to play" isOpen={isOpen} close={close}>
