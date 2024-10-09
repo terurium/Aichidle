@@ -1,7 +1,7 @@
 import { Guesses } from "../Guesses";
 import { Panel } from "./Panel";
 import React from "react";
-import { Hokkaidle } from "../Hokkaidle";
+import { Aichidle } from "../Aichidle";
 import { formatDistance } from "../../domain/geography";
 import { Worldle } from "../Worldle";
 import { useSettings } from "../../hooks/useSettings";
@@ -18,7 +18,7 @@ export function Infos({ isOpen, close }: InfosProps) {
     <Panel title="How to play" isOpen={isOpen} close={close}>
       <div className="space-y-3 text-justify border-b-2 border-gray-200 pb-3 mb-3">
         <div>
-          <Hokkaidle /> で、北海道の市町村を 6 回以内で当ててください。
+          <Aichidle /> で、愛知県の市町村を 6 回以内で当ててください。
         </div>
         <div>
           予想を入力すると、予想した市町村と正解の市町村との距離と方向が表示されます。
@@ -31,38 +31,19 @@ export function Infos({ isOpen, close }: InfosProps) {
             rowCount={1}
             guesses={[
               {
-                name: "富良野市",
-                direction: "NE",
-                distance: 212237,
-                angleInDeg: 220,
-              },
-            ]}
-            settingsData={settingsData}
-          />
-          <div className="my-2">
-            １回目は<span className="uppercase font-bold">富良野市</span>{" "}
-            を予想しました。 正解から
-            {formatDistance(212237, settingsData.distanceUnit)}
-            だけ離れていて、正解への方角は左下方向。
-          </div>
-        </div>
-        <div>
-          <Guesses
-            rowCount={1}
-            guesses={[
-              {
-                name: "函館市",
+                name: "名古屋市中区",
                 direction: "SE",
-                distance: 14447,
-                angleInDeg: 349,
+                distance: 15848,
+                angleInDeg: 144,
               },
             ]}
             settingsData={settingsData}
           />
           <div className="my-2">
-            ２回目は <span className="uppercase font-bold">函館市</span>{" "}
-            を予想しました。
-            {formatDistance(14447, settingsData.distanceUnit)} と近づきました。
+            １回目は<span className="uppercase font-bold">名古屋市中区</span>{" "}
+            を予想しました。 正解から
+            {formatDistance(15848, settingsData.distanceUnit)}
+            だけ離れていて、正解への方角は右下方向。
           </div>
         </div>
         <div>
@@ -70,7 +51,26 @@ export function Infos({ isOpen, close }: InfosProps) {
             rowCount={1}
             guesses={[
               {
-                name: "七飯町",
+                name: "碧南市",
+                direction: "N",
+                distance: 18883,
+                angleInDeg: 5,
+              },
+            ]}
+            settingsData={settingsData}
+          />
+          <div className="my-2">
+            ２回目は <span className="uppercase font-bold">碧南市</span>{" "}
+            を予想しました。
+            {formatDistance(18883, settingsData.distanceUnit)} と少し離れました。
+          </div>
+        </div>
+        <div>
+          <Guesses
+            rowCount={1}
+            guesses={[
+              {
+                name: "豊明市",
                 direction: "N",
                 distance: 0,
                 angleInDeg: 0,
@@ -80,15 +80,15 @@ export function Infos({ isOpen, close }: InfosProps) {
           />
           <div className="my-2">
             ３回目の予想、
-            <span className="uppercase font-bold">七飯町</span> は正解でした！
+            <span className="uppercase font-bold">豊明市</span> は正解でした！
           </div>
         </div>
       </div>
       <div className="space-y-3 text-justify border-b-2 border-gray-200 pb-3 mb-3 font-bold">
-        <Hokkaidle /> は毎日更新されます。
+        <Aichidle /> は毎日更新されます。
       </div>
       <div className="space-y-3 text-justify border-b-2 border-gray-200 pb-3 mb-3">
-        <Hokkaidle /> has been <span className="font-bold">heavily</span>{" "}
+        <Aichidle /> has been <span className="font-bold">heavily</span>{" "}
         inspired by{" "}
         <a
           className="underline"

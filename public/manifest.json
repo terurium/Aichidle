@@ -1,6 +1,6 @@
 {
-  "short_name": "Hokkaidle",
-  "name": "Wordle game in the Hokkaido",
+  "short_name": "Aichiidle",
+  "name": "Wordle game in the Aichi-ken",
   "icons": [
     {
       "src": "favicon.ico",
@@ -8,12 +8,7 @@
       "type": "image/x-icon"
     },
     {
-      "src": "logo192.png",
-      "type": "image/png",
-      "sizes": "192x192"
-    },
-    {
-      "src": "logo512.png",
+      "src": "icon512_maskable.png",
       "type": "image/png",
       "sizes": "512x512"
     }

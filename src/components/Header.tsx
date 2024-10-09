@@ -15,10 +15,10 @@ export const Header: React.FC<Props> = ({
         ❓
       </button>
       <h1 className="text-4xl font-bold tracking-wide text-center my-1 flex-auto">
-        HOKKAI<span className="text-green-600">D</span>LE
+        AICHI<span className="text-green-600">D</span>LE
         <img
-          src="hokkaido.png"
-          alt="Hokkaido"
+          src="aichi.png"
+          alt="Aichidle"
           style={{
             height: "33px",
             display: "inline",

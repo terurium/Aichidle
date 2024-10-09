@@ -1,12 +1,12 @@
 import React from "react";
 
-export function Hokkaidle() {
+export function Aichidle() {
   return (
     <span className="font-bold">
-      HOKKAI<span className="text-green-600">D</span>LE
+      AICHI<span className="text-green-600">D</span>LE
       <img
-        src="hokkaido.png"
-        alt="Hokkaido"
+        src="aichi.png"
+        alt="Aichi-ken"
         style={{
           height: "20px",
           display: "inline",

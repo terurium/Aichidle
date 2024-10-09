@@ -4,7 +4,7 @@ import { Game } from "./components/Game";
 import React, { useState } from "react";
 import { Infos } from "./components/panels/Infos";
 import { Settings } from "./components/panels/Settings";
-import { Hokkaidle } from "./components/Hokkaidle";
+import { Aichidle } from "./components/Aichidle";
 import { Header } from "./components/Header";
 import { SettingContextProvider } from "./contexts/SettingContext";
 import { useSettings } from "./hooks/useSettings";
@@ -34,7 +34,7 @@ export const App = () => {
           />
           <Game />
           <footer className="flex justify-center text-sm mt-8 mb-1">
-            <Hokkaidle />
+            <Aichidle />
           </footer>
         </div>
       </div>
