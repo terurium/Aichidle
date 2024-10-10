@@ -50,7 +50,8 @@ export function Game() {
     if (gameEnded) {
       // eslint-disable-next-line
       // @ts-ignore
-      window.gtagGameEndEvent(guesses.length, getTotalCorrectTimes());
+      return
+      //window.gtagGameEndEvent(guesses.length, getTotalCorrectTimes());
     }
   }, [gameEnded, guesses]);
 
