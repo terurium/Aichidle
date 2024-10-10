@@ -54,6 +54,7 @@ export function Game() {
     }
   }, [gameEnded, guesses]);
 
+
   const handleSubmit = useCallback(
     (e: React.FormEvent<HTMLFormElement>) => {
       e.preventDefault();
