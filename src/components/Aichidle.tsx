@@ -5,7 +5,7 @@ export function Aichidle() {
     <span className="font-bold">
       AICHI<span className="text-green-600">D</span>LE
       <img
-        src="/aichi.png"
+        src="aichi.png"
         alt="Aichi-ken"
         style={{
           height: "20px",
