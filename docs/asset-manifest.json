@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/aichidle/static/css/main.23be5d72.css",
-    "main.js": "/aichidle/static/js/main.a8d8ef5b.js",
+    "main.js": "/aichidle/static/js/main.fce5da68.js",
     "static/js/787.146a6663.chunk.js": "/aichidle/static/js/787.146a6663.chunk.js",
     "index.html": "/aichidle/index.html",
     "main.23be5d72.css.map": "/aichidle/static/css/main.23be5d72.css.map",
-    "main.a8d8ef5b.js.map": "/aichidle/static/js/main.a8d8ef5b.js.map",
+    "main.fce5da68.js.map": "/aichidle/static/js/main.fce5da68.js.map",
     "787.146a6663.chunk.js.map": "/aichidle/static/js/787.146a6663.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.23be5d72.css",
-    "static/js/main.a8d8ef5b.js"
+    "static/js/main.fce5da68.js"
   ]
 }

@@ -88,66 +88,30 @@ export function Infos({ isOpen, close }: InfosProps) {
         <Aichidle /> は毎日更新されます。
       </div>
       <div className="space-y-3 text-justify border-b-2 border-gray-200 pb-3 mb-3">
-        <Aichidle /> has been <span className="font-bold">heavily</span>{" "}
-        inspired by{" "}
-        <a
-          className="underline"
-          href="https://worldle.teuteuf.fr/"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Worldle />
-        </a>{" "}
-        created by{" "}
-        <a
-          className="underline"
-          href="https://twitter.com/teuteuf"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          @teuteuf
-        </a>
-        which has been <span className="font-bold">heavily</span> inspired by{" "}
-        <a
-          className="underline"
-          href="https://www.powerlanguage.co.uk/wordle/"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Wordle
-        </a>{" "}
-        created by{" "}
-        <a
-          className="underline"
-          href="https://www.nytimes.com/games/wordle/index.html"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Josh Wardle (@powerlanguish)
-        </a>
-        .
+      AICHIDLEは、Takahiro Nishino(@takapiro99)が作成したHokkaidleをベースに改造したものです。そのHokkaidleは、Josh Wardle (@powerlanguish)が作成したWordleに多大なインスピレーションを受けて@teuteufwhichが作成したWORLDLEに多大なインスピレーションを受けています。
+Made by @terurium GitHub : github.com/terurium/Aichidle
       </div>
       <div className="space-y-3 text-justify pb-3">
         <div>
           Made by{" "}
           <a
             className="underline"
-            href="https://github.com/takapiro99"
+            href="https://github.com/terurium"
             target="_blank"
             rel="noopener noreferrer"
           >
-            @takapiro99
+            @terurium
           </a>
         </div>
         <div>
           GitHub :{" "}
           <a
             className="underline"
-            href="https://github.com/takapiro99/hokkaidle"
+            href="https://github.com/terurium/aichidle"
             target="_blank"
             rel="noopener noreferrer"
           >
-            github.com/takapiro99/hokkaidle
+            github.com/terurium/aichidle
           </a>
         </div>
         {/* <div>
